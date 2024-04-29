@@ -68,10 +68,10 @@
             </div>
             <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                 <div class="product-details-content quickview-content ml-25px">
-                    <h2>Modern Smart Phone</h2>
+                    <h2>{{prod.name}}</h2>
                     <div class="pricing-meta">
                         <ul class="d-flex">
-                            <li class="new-price">₹20.90</li>
+                            <li class="new-price">₹{{prod.price}}</li>
                         </ul>
                     </div>
                     <div class="pro-details-rating-wrap">
@@ -84,7 +84,7 @@
                         </div>
                         <span class="read-review"><a class="reviews" href="#">(5 Customer Review)</a></span>
                     </div>
-                    <p class="mt-30px">Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmll tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mill veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exet commodo consequat. Duis aute irure dolor</p>
+                    <p class="mt-30px">{{prod.description}}</p>
                     <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
                         <span>SKU:</span>
                         <ul class="d-flex">
@@ -96,12 +96,7 @@
                     <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
                         <span>Categories: </span>
                         <ul class="d-flex">
-                            <li>
-                                <a href="#">Smart Device, </a>
-                            </li>
-                            <li>
-                                <a href="#">ETC</a>
-                            </li>
+                            <a href="#"> {{prod.categories}} </a>
                         </ul>
                     </div>
                     <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
