@@ -9,55 +9,23 @@
                 <!-- Swiper -->
                 <div class="swiper-container zoom-top">
                     <div class="swiper-wrapper">
+                        {% for i in prod.images_set.all%}
                         <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/1.webp" alt="">
-                            <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/zoom-image/1.webp">
+                            <img class="img-responsive m-auto" src="/{{i.image}}" alt="">
+                            <a class="venobox full-preview" data-gall="myGallery" href="/{{i.image}}">
                                 <i class="fa fa-arrows-alt" aria-hidden="true"></i>
                             </a>
                         </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/2.webp" alt="">
-                            <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/zoom-image/2.webp">
-                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/3.webp" alt="">
-                            <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/zoom-image/3.webp">
-                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/4.webp" alt="">
-                            <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/zoom-image/4.webp">
-                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/5.webp" alt="">
-                            <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/zoom-image/5.webp">
-                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="swiper-container mt-20px zoom-thumbs slider-nav-style-1 small-nav">
                     <div class="swiper-wrapper">
+                        {% for i in prod.images_set.all%}
                         <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/small-image/1.webp" alt="">
+                            <img class="img-responsive m-auto" src="/{{i.image}}" alt="">
                         </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/small-image/2.webp" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/small-image/3.webp" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/small-image/4.webp" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="img-responsive m-auto" src="assets/images/product-image/small-image/5.webp" alt="">
-                        </div>
+                        {% endfor %}
                     </div>
                     <!-- Add Arrows -->
                     <div class="swiper-buttons">
@@ -68,7 +36,7 @@
             </div>
             <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                 <div class="product-details-content quickview-content ml-25px">
-                    <h2>{{prod.name}}</h2>
+                    <h2>{{prod.name|truncatewords:40}}</h2>
                     <div class="pricing-meta">
                         <ul class="d-flex">
                             <li class="new-price">₹{{prod.price}}</li>
@@ -103,10 +71,9 @@
                         <span>Tags: </span>
                         <ul class="d-flex">
                             <li>
-                                <a href="#">Smart Device, </a>
-                            </li>
-                            <li>
-                                <a href="#">Phone</a>
+                            {% for i in prod.tag_set.all%}
+                            <a href="#">{{i.name}}, </a>
+                            {% endfor %}
                             </li>
                         </ul>
                     </div>
@@ -137,18 +104,13 @@
                         <div id="des-details2" class="tab-pane">
                             <div class="product-anotherinfo-wrapper text-start">
                                 <ul>
-                                    <li><span>Weight</span> 400 g</li>
-                                    <li><span>Dimensions</span>10 x 10 x 15 cm</li>
-                                    <li><span>Materials</span> 60% cotton, 40% polyester</li>
-                                    <li><span>Other Info</span> American heirloom jean shorts pug seitan letterpress</li>
-                                </ul>
+                                    <li>{{prod.information}}</li>
+                                 </ul>
                             </div>
                         </div>
                         <div id="des-details1" class="tab-pane active">
                             <div class="product-description-wrapper">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip efgx ea co consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occae cupidatat non proident, sunt in culpa qui
-                                </p>
+                                <p>{{prod.description}}</p>
                             </div>
                         </div>
                         <div id="des-details3" class="tab-pane">
