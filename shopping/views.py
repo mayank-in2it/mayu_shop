@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from store_app.models import Product, Categories, Filter_Price, Color, Brand
+from django.shortcuts import render, redirect
+from store_app.models import Product, Categories, Filter_Price, Color, Brand,Contact_us
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 def BASE(request):
@@ -92,4 +94,32 @@ def PRODUCT_DETAIL_PAGE(request, id):
     return render(request, 'main/product_single.html', context)
 
 def Contact_Page(request):
-    return render(request,'main/contact.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        
+        contact = Contact_us(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message,
+        )
+        
+        
+        subject = subject
+        message = message
+        email_from = settings.EMAIL_HOST_USER
+        try:
+            send_mail(subject,message,email_from,['jiger1406@gmail.com'])
+            contact.save()
+            return redirect('index')
+        except:
+            return redirect('contact')
+            
+        # contact.save()
+        # return redirect('index')
+    
+            
+    return render(request, 'main/contact.html')

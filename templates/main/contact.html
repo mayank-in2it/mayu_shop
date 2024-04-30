@@ -11,7 +11,8 @@
                         <div class="contact-title mb-30">
                             <h2 class="title">Send A Quest</h2>
                         </div>
-                        <form class="contact-form-style" id="contact-form" action="https://whizthemes.com/nazmul/php/mail.php" method="post">
+                        <form class="contact-form-style"  action="/contact/" method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6">
                                     <input name="name" placeholder="Name*" type="text" />
