@@ -90,3 +90,6 @@ def PRODUCT_DETAIL_PAGE(request, id):
         'prod': prod
     }
     return render(request, 'main/product_single.html', context)
+
+def Contact_Page(request):
+    return render(request,'main/contact.html')

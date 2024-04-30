@@ -28,6 +28,9 @@ urlpatterns = [
     path('products/', views.PRODUCT, name='product'),
     path('search/', views.SEARCH, name='search'),
     path('product/<str:id>', views.PRODUCT_DETAIL_PAGE, name='product_details'),
+    
+    path('contact/', views.Contact_Page, name='contact'),
+
 
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
