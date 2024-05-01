@@ -116,7 +116,7 @@ def Contact_Page(request):
         message = message
         email_from = settings.EMAIL_HOST_USER
         try:
-            send_mail(subject,message,email_from,['jiger1406@gmail.com'])
+            send_mail(subject,message,email_from,['write sender email'])
             contact.save()
             return redirect('index')
         except:
