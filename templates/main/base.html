@@ -51,7 +51,12 @@
                                 <li><a href="tel:0123456789"><i class="fa fa-phone"></i> +012 3456 789</a></li>
                                 <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> demo@example.com</a>
                                 </li>
-                                <li><a href="my-account.html"><i class="fa fa-user"></i> Account</a></li>
+                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'logout' %}"><i class="fa fa-unlock"></i>Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'login' %}"><i class="fa fa-lock"></i>Login</a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -394,7 +399,12 @@
             <ul>
                 <li><a href="tel:0123456789"><i class="fa fa-phone"></i> +012 3456 789</a></li>
                 <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> demo@example.com</a></li>
-                <li><a href="my-account.html"><i class="fa fa-user"></i> Account</a></li>
+                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}"><i class="fa fa-unlock"></i>Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}"><i class="fa fa-lock"></i>Login</a></li>
+                {% endif %}
             </ul>
         </div>
         <div class="inner customScroll">
@@ -431,7 +441,7 @@
                             <li>
                                 <a href="#"><span class="menu-text">Related Shop Page</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="my-account.html">Account Page</a></li>
+                                    <li><a href="{% url 'register' %}">Account Page</a></li>
                                     <li><a href="login.html">Login & Register Page</a></li>
                                     <li><a href="empty-cart.html">Empty Cart Page</a></li>
                                     <li><a href="thank-you-page.html">Thank You Page</a></li>
