@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from store_app.models import Product, Categories, Filter_Price, Color, Brand,Contact_us
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
+from django.contrib import messages
+
+
 
 
 def BASE(request):
@@ -123,3 +127,44 @@ def Contact_Page(request):
     
             
     return render(request, 'main/contact.html')
+
+
+# def AUTH(request):
+#     return render(request,'Registration/auth.html')
+
+# def HandleRegister(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         first_name = request.POST.get('first_name')
+#         last_name = request.POST.get('last_name')
+#         email = request.POST.get('email')
+#         pass1 = request.POST.get('pass1')
+#         pass2 = request.POST.get('pass2')
+        
+        
+#         customer = User.objects.create_user(username, email, pass1)
+#         customer.first_name = first_name
+#         customer.last_name = last_name
+#         customer.save()
+#         return redirect('index')
+    
+#     return render(request,'Registration/auth.html')
+
+
+
+
+def HandleRegister(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        pass1 = request.POST.get('pass1')
+        pass2 = request.POST.get('pass2')
+        
+        customer = User.objects.create_user(username,email,pass1)
+        customer.first_name = first_name
+        customer.last_name = last_name
+        customer.save()
+        return redirect('index')
+    return render(request,'Registration/auth.html')

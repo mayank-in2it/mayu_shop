@@ -119,8 +119,8 @@ STATICFILES_DIRS = [
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Enter your Email'
-EMAIL_HOST_PASSWORD = 'Enter your password'
+EMAIL_HOST_USER = 'jiger1406@gmail.com'
+EMAIL_HOST_PASSWORD = 'iyij hqyp sxee qysj'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

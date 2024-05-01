@@ -30,7 +30,9 @@ urlpatterns = [
     path('product/<str:id>', views.PRODUCT_DETAIL_PAGE, name='product_details'),
     
     path('contact/', views.Contact_Page, name='contact'),
-
+    
+    path('register/',views.HandleRegister, name='register'),
+    # path('authentication/',views.AUTH, name='auth'),
 
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
