@@ -24,7 +24,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jet',
+    # 'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,5 +127,5 @@ EMAIL_HOST_PASSWORD = 'Write here your Password'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-JET_DEFAULT_THEME = 'light-violet'
+# JET_DEFAULT_THEME = 'light-violet'
 

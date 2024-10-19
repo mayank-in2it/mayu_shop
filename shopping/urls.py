@@ -21,7 +21,6 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     path('', views.HOME, name= 'index'),
     path('base/', views.BASE, name='base'),
