@@ -36,3 +36,11 @@ urlpatterns = [
 
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+
+
+# For Admin Panel Update
+admin.site.site_header = 'Mayu Shop'                    
+admin.site.index_title = 'Mayu Shop Field'                 
+admin.site.site_title = 'Mayu Shop Admin Panel' 
